@@ -1,5 +1,6 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
+import Navbar from '@/components/Navbar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -12,11 +13,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${inter.className} bg-black text-gray-100 min-h-screen flex flex-col`}>
-        <header className="bg-gray-800 text-center py-6 shadow-md">
-          <h1 className="text-2xl text-shadow-gray-400">Gabriel Predictor</h1>
-        </header>
+        <Navbar />
 
-        <main className="flex-grow flex items-center justify-center py-10 bg-gray-900 px-4">
+        <main className="flex-grow py-24 px-6 bg-gray-900">
           {children}
         </main>
 
