@@ -19,7 +19,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="bg-black text-white">
+    <div className="bg-gray-950 text-white">
       <Navbar />
 
       <div className="relative z-10">
@@ -57,11 +57,7 @@ export default function HomePage() {
         </form>
       </section>
 
-      <div className="py-12 px-6 bg-gray-900">
-        <TopStocks />
-      </div>
-
-      <section id="about" className="min-h-[80vh] py-24 px-6 bg-gray-900 text-gray-200 flex items-center">
+      <section id="about" className="min-h-[80vh] py-24 px-6 bg-gray-950 text-gray-200 flex items-center">
         <div className="max-w-5xl mx-auto space-y-8">
           <h2 className="text-3xl md:text-4xl font-light border-b border-gray-700 pb-4">
             About the Project
@@ -84,6 +80,10 @@ export default function HomePage() {
                 The system uses Random Forest and sentiment analysis on recent headlines.
               </p>
             </div>
+          </div>
+          <div>
+            <h3 className="text-lg font-medium text-white mb-2">Top Stocks</h3>
+            <TopStocks />
           </div>
         </div>
       </section>
