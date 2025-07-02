@@ -70,9 +70,22 @@ export default function HomePage() {
         <input
           value={ticker}
           onChange={(e) => setTicker(e.target.value)}
+          list="tickers"
           placeholder="Enter ticker (e.g. AAPL)"
           className="bg-gray-800 border border-blue-600 text-white rounded-md p-3 placeholder-gray-400"
         />
+        <datalist id="tickers">
+          <option value="AAPL" />
+          <option value="GOOGL" />
+          <option value="AMZN" />
+          <option value="MSFT" />
+          <option value="TSLA" />
+          <option value="META" />
+          <option value="NFLX" />
+          <option value="NVDA" />
+          <option value="BRK-B" />
+          <option value="JPM" />
+        </datalist>
         <button
           type="submit"
           className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md"
