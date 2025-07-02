@@ -1,14 +1,21 @@
 import { NextResponse } from 'next/server';
+import yahooFinance from 'yahoo-finance2';
 
 export async function GET() {
-  const data = [
-    { symbol: 'AAPL', price: 212.32, change: -0.42 },
-    { symbol: 'GOOGL', price: 2801.12, change: 1.03 },
-    { symbol: 'TSLA', price: 703.17, change: -2.13 },
-    { symbol: 'AMZN', price: 3512.89, change: 0.85 },
-    { symbol: 'MSFT', price: 295.44, change: -0.12 },
-    { symbol: 'NVDA', price: 123.45, change: 1.91 },
-  ];
-
-  return NextResponse.json(data);
+  const symbols = ['AAPL', 'GOOGL', 'AMZN', 'MSFT', 'TSLA', 'META', 'NVDA', 'NFLX', 'BRK-B', 'JPM'];
+  try {
+    const quotes = await Promise.all(
+      symbols.map(symbol =>
+        yahooFinance.quote(symbol).then(q => ({
+          symbol,
+          price: q.regularMarketPrice,
+          change: q.regularMarketChangePercent
+        }))
+      )
+    );
+    return NextResponse.json(quotes);
+  } catch (err) {
+    console.error(err);
+    return NextResponse.json({ error: 'Failed to fetch quotes' }, { status: 500 });
+  }
 }
