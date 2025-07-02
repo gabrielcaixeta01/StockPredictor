@@ -63,7 +63,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="w-full max-w-[60%] bg-gray-900 p-4 rounded-xl shadow-lg">
+    <div className="w-full max-w-[60%] bg-[#0d0f18a9] p-4 rounded-xl shadow-lg">
       <h2 className="text-2xl  mb-6 text-center">Stock Price Predictor</h2>
 
       <div className="w-full flex mb-6 justify-center text-center">

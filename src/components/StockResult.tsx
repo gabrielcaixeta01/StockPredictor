@@ -79,6 +79,7 @@ export default function StockResult({
           height={500}
         />
       </div>
+      
     </div>
   );
 }
