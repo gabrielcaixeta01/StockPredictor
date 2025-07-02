@@ -63,37 +63,41 @@ export default function HomePage() {
   };
 
   return (
-    <div className="w-full max-w-xl bg-gray-900 p-8 rounded-xl shadow-lg">
-      <h2 className="text-2xl font-bold mb-6 text-center">Stock Price Predictor</h2>
+    <div className="w-full max-w-[60%] bg-gray-900 p-4 rounded-xl shadow-lg">
+      <h2 className="text-2xl  mb-6 text-center">Stock Price Predictor</h2>
 
-      <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-        <input
-          value={ticker}
-          onChange={(e) => setTicker(e.target.value)}
-          list="tickers"
-          placeholder="Enter ticker (e.g. AAPL)"
-          className="bg-gray-800 border border-blue-600 text-white rounded-md p-3 placeholder-gray-400"
-        />
-        <datalist id="tickers">
-          <option value="AAPL" />
-          <option value="GOOGL" />
-          <option value="AMZN" />
-          <option value="MSFT" />
-          <option value="TSLA" />
-          <option value="META" />
-          <option value="NFLX" />
-          <option value="NVDA" />
-          <option value="BRK-B" />
-          <option value="JPM" />
-        </datalist>
-        <button
-          type="submit"
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md"
-        >
-          Predict
-        </button>
-        {error && <p className="text-red-500 text-sm">{error}</p>}
-      </form>
+      <div className="w-full flex mb-6 justify-center text-center">
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-4 min-w-[75%]">
+          <input
+            value={ticker}
+            onChange={(e) => setTicker(e.target.value)}
+            list="tickers"
+            placeholder="Enter ticker (e.g. AAPL)"
+            className="bg-gray-800 border border-blue-600 text-white rounded-md p-3 placeholder-gray-400"
+          />
+          <datalist id="tickers">
+            <option value="AAPL" />
+            <option value="GOOGL" />
+            <option value="AMZN" />
+            <option value="MSFT" />
+            <option value="TSLA" />
+            <option value="META" />
+            <option value="NFLX" />
+            <option value="NVDA" />
+            <option value="BRK-B" />
+            <option value="JPM" />
+          </datalist>
+          <button
+            type="submit"
+            className="bg-gray-800 hover:bg-blue-700 transition duration-500 ease-in-out text-white font-semibold py-3 rounded-md"
+          >
+            Predict
+          </button>
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+        </form>
+      </div>
+
+      
 
       {data && <StockResult {...data} />}
     </div>
