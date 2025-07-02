@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <h1 className="text-2xl font-semibold text-white">Stock Predictor</h1>
         </header>
 
-        <main className="flex-grow flex items-center justify-center px-4">
+        <main className="flex-grow flex items-center justify-center py-10 bg-gray-800 px-4">
           {children}
         </main>
 
