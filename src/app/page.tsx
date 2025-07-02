@@ -16,10 +16,10 @@ export default function HomePage() {
   };
 
   return (
-    <div id="home" className="min-h-screen">
+    <div id="home" className="bg-green-300">
       <Navbar />
 
-      <section className="h-screen flex flex-col justify-center items-center bg-black text-white px-4">
+      <section className="h-[80vh] flex flex-col justify-center items-center bg-black text-white px-4">
         <h1 className="text-4xl font-light mb-6">Welcome to Stock Predictor</h1>
         <form onSubmit={handleSubmit} className="w-full max-w-md space-y-4">
           <input
@@ -50,7 +50,7 @@ export default function HomePage() {
         </form>
       </section>
 
-      <section id="about" className="py-20 px-4 bg-gray-900 text-gray-300">
+      <section id="about" className="h-[80vh] py-20 px-4 bg-gray-900 text-gray-300">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl mb-4 font-light">About</h2>
           <p>
@@ -59,7 +59,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="contact" className="py-20 px-4 bg-gray-800 text-gray-300">
+      <section id="contact" className="h-[80vh] py-20 px-4 bg-gray-800 text-gray-300">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl mb-4 font-light">Contact</h2>
           <p>
