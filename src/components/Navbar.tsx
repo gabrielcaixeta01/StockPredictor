@@ -19,7 +19,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-black text-gray-300 shadow-md px-6 py-4 flex justify-between items-center fixed top-0 w-full z-50">
+    <nav className="bg-black text-gray-300 shadow-md px-6 py-4 mb-5 flex justify-between items-center fixed top-0 w-full z-50">
       <Link href="/" className="text-xl font-light">Gabriel Predictor</Link>
       <ul className="flex space-x-6 text-sm font-light">
         <li className="cursor-pointer hover:text-white" onClick={() => handleNavClick('home')}>Home</li>
