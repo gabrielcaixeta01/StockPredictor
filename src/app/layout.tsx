@@ -13,10 +13,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-black text-gray-100 min-h-screen flex flex-col`}>
+      <body className={`${inter.className} text-gray-100 min-h-screen flex flex-col`}>
         <Navbar />
 
-        <main className="flex-grow bg-gray-900">
+        <main className="flex-grow bg-black">
           {children}
         </main>
 

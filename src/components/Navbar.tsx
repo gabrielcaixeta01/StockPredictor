@@ -19,13 +19,33 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-black text-gray-300 shadow-md px-6 py-4 mb-5 flex justify-between items-center fixed top-0 w-full z-50">
-      <Link href="/" className="text-xl font-light">Gabriel Predictor</Link>
-      <ul className="flex space-x-6 text-sm font-light">
-        <li className="cursor-pointer hover:text-white" onClick={() => handleNavClick('home')}>Home</li>
-        <li className="cursor-pointer hover:text-white" onClick={() => handleNavClick('about')}>About</li>
-        <li className="cursor-pointer hover:text-white" onClick={() => handleNavClick('contact')}>Contact</li>
-      </ul>
+    <nav className="bg-black/80 backdrop-blur-md text-gray-200 shadow-lg px-8 py-4 fixed top-0 w-full z-50 flex justify-between items-center">
+        {/* Branding */}
+        <Link href="/" className="text-xl tracking-wide font-extralight text-white hover:text-blue-400 transition-colors duration-300">
+            Quantum Alpha
+        </Link>
+
+        {/* Navigation Links */}
+        <ul className="flex space-x-8 text-sm font-light">
+            <li
+            className="cursor-pointer hover:text-blue-400 transition-colors duration-300"
+            onClick={() => handleNavClick('home')}
+            >
+            Home
+            </li>
+            <li
+            className="cursor-pointer hover:text-blue-400 transition-colors duration-300"
+            onClick={() => handleNavClick('about')}
+            >
+            About
+            </li>
+            <li
+            className="cursor-pointer hover:text-blue-400 transition-colors duration-300"
+            onClick={() => handleNavClick('contact')}
+            >
+            Contact
+            </li>
+        </ul>
     </nav>
   );
 }
