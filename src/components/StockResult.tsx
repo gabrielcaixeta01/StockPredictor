@@ -11,6 +11,7 @@ type Props = {
   }[];
   imagePrice: string;
   imageNews: string;
+  imageTechnical: string;
   ticker: string;
 };
 
@@ -20,6 +21,7 @@ export default function StockResult({
   news,
   imagePrice,
   imageNews,
+  imageTechnical,
   ticker,
 }: Props) {
   return (
@@ -79,6 +81,21 @@ export default function StockResult({
           height={500}
         />
       </div>
+
+      {imageTechnical && (
+      <div className="space-y-6">
+        <h3 className="text-lg font-light border-b border-gray-700 pb-2">
+          Technical Indicators
+        </h3>
+        <Image
+          src={imageTechnical}
+          alt="Technical indicators chart"
+          className="rounded-lg w-full"
+          width={800}
+          height={500}
+        />
+      </div>
+    )}
       
     </div>
   );

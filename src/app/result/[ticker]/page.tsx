@@ -14,6 +14,7 @@ type StockResultData = {
   next: number;
   news: NewsArticle[];
   imagePrice: string;
+  imageTechnical: string;
   imageNews: string;
 };
 
@@ -42,7 +43,7 @@ export default async function ResultPage({ params }: Props) {
 
   return (
     <main className="w-full max-w-5xl mx-auto px-4 py-10">
-      <StockResult {...data} />
+      <StockResult {...data} ticker={ticker.toUpperCase()} />
     </main>
   );
 }
