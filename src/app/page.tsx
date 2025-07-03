@@ -23,18 +23,29 @@ export default function HomePage() {
       <Navbar />
 
       <div className="relative z-10">
-        <StockTickerWidget />
+          <StockTickerWidget />
       </div>
 
-      <section id="home" className="h-[80vh] flex flex-col justify-center items-center px-4">
-        <h1 className="text-4xl font-light mb-6">Welcome to Stock Predictor</h1>
-        <form onSubmit={handleSubmit} className="w-full max-w-md space-y-4">
+      <section id="home" className="relative h-screen flex flex-col justify-center items-center px-4 bg-gradient-to-br from-gray-950 via-gray-900 to-black text-white overflow-hidden">
+        {/* Título principal com ênfase e animação sutil */}
+        <h1 className="text-5xl md:text-6xl font-light text-center leading-tight mb-6">
+          Predict the Market<br />
+          with <span className="text-blue-500">AI-Powered Insights</span>
+        </h1>
+
+        {/* Subtítulo explicativo */}
+        <p className="text-lg text-gray-400 font-extralight text-center mb-8 max-w-xl">
+          Enter a stock ticker to get a forecast powered by machine learning and real-time news sentiment.
+        </p>
+
+        {/* Formulário de busca */}
+        <form onSubmit={handleSubmit} className="w-full max-w-md space-y-4 font-extralight">
           <input
             value={ticker}
             onChange={(e) => setTicker(e.target.value)}
             list="tickers"
             placeholder="Enter ticker (e.g. AAPL)"
-            className="w-full bg-gray-800 border border-gray-600 text-white rounded-md p-3"
+            className="w-full bg-gray-800 border border-gray-600 text-white rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
           />
           <datalist id="tickers">
             <option value="AAPL" />
@@ -50,12 +61,22 @@ export default function HomePage() {
           </datalist>
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md"
+            className="w-full bg-blue-600 hover:bg-blue-700 transition-all duration-300 text-white py-3 rounded-md font-light shadow-md"
           >
             Predict
           </button>
         </form>
+
+        {/* Link para rolar até a seção About */}
+        <a
+          href="#about"
+          className="text-blue-400 text-sm mt-6"
+        >
+          Learn how it works ↓
+        </a>        
       </section>
+
+      
 
       <section id="about" className="min-h-[80vh] py-24 px-6 bg-gray-950 text-gray-200 flex items-center">
         <div className="max-w-5xl mx-auto space-y-8">
