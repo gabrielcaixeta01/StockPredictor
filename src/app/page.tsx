@@ -78,7 +78,7 @@ export default function HomePage() {
 
       
 
-      <section id="about" className="min-h-[90vh] py-24 px-6 bg-gray-950 text-gray-200 flex items-center">
+      <section id="about" className="min-h-[90vh] py-24 px-6 bg-black text-gray-200 flex items-center">
         <div className="max-w-5xl mx-auto space-y-10 font-light">
           <div>
             <h2 className="text-sm uppercase text-blue-500 tracking-widest">Overview</h2>
