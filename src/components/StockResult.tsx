@@ -87,6 +87,11 @@ export default function StockResult({
         <h3 className="text-lg font-light border-b border-gray-700 pb-2">
           Technical Indicators
         </h3>
+        <p className="text-sm text-gray-400 leading-relaxed">
+          This chart shows two common technical indicators: <span className="text-gray-300 font-medium">Bollinger Bands</span> and <span className="text-gray-300 font-medium">RSI (Relative Strength Index)</span>. 
+          Bollinger Bands help visualize price volatility and potential overbought/oversold conditions, 
+          while RSI indicates momentum and possible trend reversals. Values above 70 suggest overbought conditions; below 30, oversold.
+        </p>
         <Image
           src={imageTechnical}
           alt="Technical indicators chart"
