@@ -37,7 +37,8 @@ type Props = {
 };
 
 export default async function ResultPage({ params }: Props) {
-  const data = await getPrediction(params.ticker);
+  const { ticker } = await Promise.resolve(params);
+  const data = await getPrediction(ticker);
 
   return (
     <main className="w-full max-w-5xl mx-auto px-4 py-10">
