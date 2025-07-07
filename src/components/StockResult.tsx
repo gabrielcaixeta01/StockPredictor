@@ -34,7 +34,7 @@ export default function StockResult({
       <h2 className="text-2xl md:text-3xl text-center">{ticker} Stock Analysis</h2>
 
       {/* Resumo de Previsões */}
-      <section className="bg-zinc-900 border border-zinc-700 rounded-xl p-6 shadow-xl">
+      <section id="summary" className="bg-zinc-900 border border-zinc-700 rounded-xl p-6 shadow-xl">
         <h3 className="text-xl text-white mb-4">Prediction Summary</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-base text-gray-300">
           <p><span className="text-gray-400">Today:</span> ${today.toFixed(2)}</p>
@@ -47,7 +47,7 @@ export default function StockResult({
       </section>
 
       {/* Gráfico de Preço */}
-      <section className="space-y-6">
+      <section id="price" className="space-y-6">
         <h3 className="text-lg border-b border-gray-700 pb-2">Historical Price Graph</h3>
         <Image
           src={imagePrice}
@@ -72,7 +72,7 @@ export default function StockResult({
 
       {/* Indicadores Técnicos */}
       {imageTechnical && (
-        <section className="space-y-6">
+        <section id="technical" className="space-y-6">
           <h3 className="text-lg border-b border-gray-700 pb-2">Technical Indicators</h3>
           <p className="text-sm text-gray-400 leading-relaxed">
             This chart shows <span className="text-gray-300">Bollinger Bands</span> and <span className="text-gray-300">RSI (Relative Strength Index)</span>. 
@@ -90,7 +90,7 @@ export default function StockResult({
       )}
 
       {/* Notícias */}
-      <section className="space-y-6">
+      <section id="news" className="space-y-6">
         <h3 className="text-lg border-b border-gray-700 pb-2">News Overview</h3>
         <div className="grid md:grid-cols-2 gap-6">
           {news.map((item, index) => (
