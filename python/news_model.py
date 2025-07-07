@@ -30,18 +30,23 @@ def train_model_news(ticker: str):
     img_path = f"public/images/{ticker}_news.png"
     os.makedirs(os.path.dirname(img_path), exist_ok=True)
 
+    # Estilo escuro e refinado
+    plt.style.use("dark_background")
+    fig, ax = plt.subplots(figsize=(10, 5), facecolor='black')
+    fig.patch.set_facecolor('black')
+
     if not articles:
         predicted_price = base_price
 
-        plt.style.use("dark_background")
-        fig, ax = plt.subplots(figsize=(8, 4))
-        ax.plot([0, 1], [base_price, predicted_price], marker="o", linestyle="--", color="gray", label="No News Data")
-        ax.set_title(f"{ticker} – No News Available", fontsize=12)
-        ax.set_ylabel("Predicted Price ($)")
+        ax.plot([0, 1], [base_price, predicted_price], marker="o", linestyle="--",
+                color="gray", linewidth=2, label="No News Data")
+        ax.set_title(f"{ticker} – No News Available", fontsize=14, color='white')
+        ax.set_ylabel("Predicted Price ($)", fontsize=12, color='white')
+        ax.tick_params(colors='white')
+        ax.legend(facecolor='black', edgecolor='white', labelcolor='white')
         ax.set_xticks([])
-        ax.legend()
         plt.tight_layout()
-        plt.savefig(img_path, dpi=300, bbox_inches='tight')
+        plt.savefig(img_path, dpi=300, bbox_inches='tight', facecolor=fig.get_facecolor())
         plt.close()
 
         return round(predicted_price, 2), f"/images/{ticker}_news.png"
@@ -59,16 +64,18 @@ def train_model_news(ticker: str):
     avg_factor = sum(factors) / len(factors)
     predicted_price = base_price * avg_factor
 
-    # Gráfico escuro e com visual refinado
-    plt.style.use("dark_background")
-    fig, ax = plt.subplots(figsize=(8, 4))
-    ax.plot([0, 1], [base_price, predicted_price], marker="o", linestyle="--", color="#00BFFF", linewidth=2, label="Sentiment-based Prediction")
-    ax.set_title(f"{ticker} – News Sentiment Prediction", fontsize=13)
-    ax.set_ylabel("Price ($)")
+    # Gráfico refinado com dados
+    ax.plot([0, 1], [base_price, predicted_price], marker="o", linestyle="--",
+            color="#00BFFF", linewidth=2.5, label="Sentiment-based Prediction")
+
+    ax.set_title(f"{ticker} – News Sentiment Prediction", fontsize=14, color='white')
+    ax.set_ylabel("Price ($)", fontsize=12, color='white')
+    ax.tick_params(colors='white')
     ax.set_xticks([])
-    ax.legend()
+    ax.legend(facecolor='black', edgecolor='white', labelcolor='white')
+
     plt.tight_layout()
-    plt.savefig(img_path, dpi=300, bbox_inches='tight')
+    plt.savefig(img_path, dpi=300, bbox_inches='tight', facecolor=fig.get_facecolor())
     plt.close()
 
     return round(predicted_price, 2), f"/images/{ticker}_news.png"

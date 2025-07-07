@@ -41,19 +41,28 @@ def train_model(ticker):
     fig, ax = plt.subplots(figsize=(12, 6), facecolor='black')
     fig.patch.set_facecolor('black')
 
-    ax.plot(df['Date'], y, label='Real Prices', color='#00BFFF', linewidth=2)
-    ax.plot(df['Date'], model.predict(X), linestyle='--', label='Random Forest Trend', color='orange', linewidth=2)
-    ax.scatter(df['Date'].iloc[-1], next_price, color='red', label='Next Day Prediction', zorder=5, s=60)
+    ax.plot(df['Date'], y, label='Real Prices', color='#00BFFF', linewidth=2.5, alpha=0.9)
+    ax.plot(df['Date'], model.predict(X), linestyle='--', label='Random Forest Trend', color='orange', linewidth=2.5, alpha=0.9)
 
-    ax.set_title(f"{ticker} - Forecast with Random Forest & Features", fontsize=16, color='white', weight='light')
-    ax.set_xlabel("Date", fontsize=12, color='white')
-    ax.set_ylabel("Price ($)", fontsize=12, color='white')
-    ax.tick_params(colors='white')
-    ax.grid(True, linestyle='--', alpha=0.3)
-    ax.legend(facecolor='black', edgecolor='white', labelcolor='white')
+    # Ponto da previsão com destaque visual
+    ax.scatter(
+        df['Date'].iloc[-1], next_price,
+        color='red', edgecolor='white',
+        label='Next Day Prediction',
+        zorder=10, s=100, linewidths=1.5
+    )
 
-    plt.xticks(rotation=45, color='white')
-    plt.yticks(color='white')
+    ax.set_title(f"{ticker} - Forecast with Random Forest & Features", fontsize=18, color='white', weight='regular', pad=15)
+    ax.set_xlabel("Date", fontsize=13, color='white')
+    ax.set_ylabel("Price ($)", fontsize=13, color='white')
+
+    ax.tick_params(colors='white', labelsize=10)
+    ax.grid(True, linestyle='--', linewidth=0.5, alpha=0.3)
+
+    ax.legend(facecolor='black', edgecolor='white', labelcolor='white', fontsize=10, loc='upper left')
+
+    plt.xticks(rotation=45, color='white', fontsize=10)
+    plt.yticks(color='white', fontsize=10)
     plt.tight_layout()
     plt.savefig(img_path, dpi=300, bbox_inches='tight', facecolor=fig.get_facecolor())
     plt.close()

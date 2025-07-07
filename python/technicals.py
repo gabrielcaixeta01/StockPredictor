@@ -6,6 +6,8 @@ import os
 
 def generate_technical_chart(ticker: str):
     df = yf.download(ticker, period="3mo")
+    if df.empty:
+        raise Exception("Insufficient data for technical analysis.")
 
     df['MA20'] = df['Close'].rolling(window=20).mean()
     df['STD20'] = df['Close'].rolling(window=20).std()
@@ -23,24 +25,34 @@ def generate_technical_chart(ticker: str):
     img_path = f"public/images/{ticker}_technical.png"
     os.makedirs(os.path.dirname(img_path), exist_ok=True)
 
+    # Estilo escuro refinado
     plt.style.use("dark_background")
-    fig, ax = plt.subplots(2, 1, figsize=(12, 8), sharex=True)
+    fig, ax = plt.subplots(2, 1, figsize=(12, 8), sharex=True, facecolor='black')
+    fig.patch.set_facecolor('black')
 
-    ax[0].plot(df.index, df['Close'], label='Close', color="#00BFFF")
-    ax[0].plot(df.index, df['MA20'], label='MA20', color="orange", linestyle="--")
+    # Gráfico de Bollinger Bands
+    ax[0].plot(df.index, df['Close'], label='Close', color="#00BFFF", linewidth=2)
+    ax[0].plot(df.index, df['MA20'], label='MA20', color="orange", linestyle="--", linewidth=2)
     ax[0].fill_between(df.index, df['Upper'], df['Lower'], color="gray", alpha=0.3)
-    ax[0].set_title(f"{ticker} - Bollinger Bands")
-    ax[0].legend()
+    ax[0].set_title(f"{ticker} - Bollinger Bands", fontsize=14, color='white')
+    ax[0].tick_params(colors='white')
+    ax[0].legend(facecolor='black', edgecolor='white', labelcolor='white')
+    ax[0].grid(True, linestyle='--', alpha=0.3)
 
-    ax[1].plot(df.index, df['RSI'], label='RSI', color="lime")
+    # Gráfico de RSI
+    ax[1].plot(df.index, df['RSI'], label='RSI', color="lime", linewidth=2)
     ax[1].axhline(70, linestyle="--", color="red")
     ax[1].axhline(30, linestyle="--", color="blue")
-    ax[1].set_title("RSI (14)")
+    ax[1].set_title("RSI (14)", fontsize=14, color='white')
     ax[1].set_ylim(0, 100)
-    ax[1].legend()
+    ax[1].tick_params(colors='white')
+    ax[1].legend(facecolor='black', edgecolor='white', labelcolor='white')
+    ax[1].grid(True, linestyle='--', alpha=0.3)
 
+    plt.xticks(color='white')
+    plt.yticks(color='white')
     plt.tight_layout()
-    plt.savefig(img_path, dpi=300, bbox_inches="tight")
+    plt.savefig(img_path, dpi=300, bbox_inches="tight", facecolor=fig.get_facecolor())
     plt.close()
 
     return f"/images/{ticker}_technical.png"

@@ -7,7 +7,6 @@ type Props = {
     title: string;
     url: string;
     summary: string;
-    sentiment: "positive" | "negative" | "neutral";
   }[];
   imagePrice: string;
   imageNews: string;
@@ -93,9 +92,6 @@ export default function StockResult({
               </a>
               <p className="text-sm text-gray-300 mt-2">
                 {item.summary || "No summary available."}
-              </p>
-              <p className="text-xs mt-1 italic text-gray-500">
-                Sentiment: {item.sentiment || "neutral"}
               </p>
             </div>
           ))}
