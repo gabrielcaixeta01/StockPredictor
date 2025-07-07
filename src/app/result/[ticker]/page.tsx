@@ -13,6 +13,9 @@ type StockResultData = {
   ticker: string;
   today: number;
   next: number;
+  probUp: number;
+  probDown: number;
+  score: number;
   news: NewsArticle[];
   imagePrice: string;
   imageTechnical: string;
