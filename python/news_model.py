@@ -27,7 +27,7 @@ def train_model_news(ticker: str):
     articles = data.get("articles", [])
 
     base_price = 100
-    img_path = f"public/images/{ticker}_news.png"
+    img_path = f".next/cache/images/{ticker}_news.png"
     os.makedirs(os.path.dirname(img_path), exist_ok=True)
 
     # Estilo escuro e refinado
@@ -49,7 +49,7 @@ def train_model_news(ticker: str):
         plt.savefig(img_path, dpi=300, bbox_inches='tight', facecolor=fig.get_facecolor())
         plt.close()
 
-        return round(predicted_price, 2), f"/images/{ticker}_news.png"
+        return round(predicted_price, 2), f"{ticker}_news.png"
 
     # Se houver artigos, avalia sentimento
     factors = []
@@ -78,4 +78,4 @@ def train_model_news(ticker: str):
     plt.savefig(img_path, dpi=300, bbox_inches='tight', facecolor=fig.get_facecolor())
     plt.close()
 
-    return round(predicted_price, 2), f"/images/{ticker}_news.png"
+    return round(predicted_price, 2), f"{ticker}_news.png"

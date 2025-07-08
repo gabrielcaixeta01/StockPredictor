@@ -38,8 +38,9 @@ def train_model(ticker):
     today_price = float(df['Close'].iloc[-1])
     next_price = float(today_price * (1 + df['Return'].tail(5).mean()))
 
-    img_path = f"public/images/{ticker}_price.png"
-    os.makedirs(os.path.dirname(img_path), exist_ok=True)
+    #Caminho para salvar a imagem
+    os.makedirs(".next/cache/images", exist_ok=True)
+    img_path = f".next/cache/images/{ticker}_price.png"
 
     # Gráfico
     plt.style.use("dark_background")
@@ -72,5 +73,5 @@ def train_model(ticker):
         "prob_up": round(prob_up, 4),
         "prob_down": round(prob_down, 4),
         "score": round(score, 4),
-        "graph_path": f"/images/{ticker}_price.png"
+        "graph_path": f"{ticker}_price.png"
     }

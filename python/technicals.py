@@ -22,8 +22,9 @@ def generate_technical_chart(ticker: str):
     rs = avg_gain / avg_loss
     df['RSI'] = 100 - (100 / (1 + rs))
 
-    img_path = f"public/images/{ticker}_technical.png"
-    os.makedirs(os.path.dirname(img_path), exist_ok=True)
+    # Caminho da imagem
+    os.makedirs(".next/cache/images", exist_ok=True)
+    img_path = f".next/cache/images/{ticker}_technical.png"
 
     # Estilo escuro refinado
     plt.style.use("dark_background")
@@ -55,4 +56,4 @@ def generate_technical_chart(ticker: str):
     plt.savefig(img_path, dpi=300, bbox_inches="tight", facecolor=fig.get_facecolor())
     plt.close()
 
-    return f"/images/{ticker}_technical.png"
+    return f"{ticker}_technical.png"

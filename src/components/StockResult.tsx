@@ -50,7 +50,7 @@ export default function StockResult({
       <section id="price" className="space-y-6 scroll-mt-20">
         <h3 className="text-lg border-b border-gray-700 pb-2">Historical Price Graph</h3>
         <Image
-          src={imagePrice}
+          src={`/api/image?name=${imagePrice}`}
           alt="Price chart"
           className="rounded-lg w-full"
           width={800}
@@ -62,7 +62,7 @@ export default function StockResult({
       <section className="space-y-6">
         <h3 className="text-lg border-b border-gray-700 pb-2">Sentiment Graph</h3>
         <Image
-          src={imageNews}
+          src={`/api/image?name=${imageNews}`}
           alt="News chart"
           className="rounded-lg w-full"
           width={800}
@@ -80,7 +80,7 @@ export default function StockResult({
             RSI suggests momentum and trend shifts — above 70 means overbought; below 30 means oversold.
           </p>
           <Image
-            src={imageTechnical}
+            src={`/api/image?name=${imageTechnical}`}
             alt="Technical indicators chart"
             className="rounded-lg w-full"
             width={800}
