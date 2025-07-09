@@ -1,36 +1,17 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Smart Ticker  
+#### Video Demo: <URL HERE>  
+#### Description:  
+Smart Ticker is an intelligent stock prediction platform designed to assist investors with AI-powered insights. The system forecasts short-term stock price movements and provides a probabilistic evaluation of whether a stock is likely to rise or fall.
 
-## Getting Started
+The project combines data science, machine learning, and modern web development to deliver a fast, responsive user experience with meaningful predictions.
 
-First, run the development server:
+Key features include:
+- Stock Price Prediction: Forecasts the next-day price of a selected stock using a trained Random Forest model.
+- Probability of Increase/Decrease: Computes and displays the likelihood that the stock will go up or down in the next period.
+- Data Sources: Pulls real-time and historical data from Yahoo Finance, and optionally uses NewsAPI for sentiment analysis.
+- Front-end: Built with Next.js and styled using Tailwind CSS, offering a clean and modern UI with responsive design.
+- Back-end and ML Pipeline: Written in Python, with `generate.py` coordinating data fetching, preprocessing, and prediction using scikit-learn.
+- Component-based Architecture: Ensures modularity and scalability using reusable React components (e.g., StockTickerWidget, TopStocks).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Smart Ticker is ideal for developers, students, and investors interested in financial machine learning, with clear potential for future development into a more robust trading assistant.
