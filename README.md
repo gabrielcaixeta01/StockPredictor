@@ -1,17 +1,23 @@
 # Smart Ticker  
 #### Video Demo: <URL HERE>  
-#### Description:  
-Smart Ticker is an intelligent stock prediction platform designed to assist investors with AI-powered insights. The system forecasts short-term stock price movements and provides a probabilistic evaluation of whether a stock is likely to rise or fall.
+#### Description:
 
-The project combines data science, machine learning, and modern web development to deliver a fast, responsive user experience with meaningful predictions.
+Smart Ticker is a full-stack web platform designed to provide short-term stock price forecasts using machine learning. The project integrates real financial data and news sentiment to estimate both the likely direction and specific predicted price of a selected stock. The goal is to support individual investors and researchers by offering an interpretable, data-driven alternative to intuition-based trading.
 
-Key features include:
-- Stock Price Prediction: Forecasts the next-day price of a selected stock using a trained Random Forest model.
-- Probability of Increase/Decrease: Computes and displays the likelihood that the stock will go up or down in the next period.
-- Data Sources: Pulls real-time and historical data from Yahoo Finance, and optionally uses NewsAPI for sentiment analysis.
-- Front-end: Built with Next.js and styled using Tailwind CSS, offering a clean and modern UI with responsive design.
-- Back-end and ML Pipeline: Written in Python, with `generate.py` coordinating data fetching, preprocessing, and prediction using scikit-learn.
-- Component-based Architecture: Ensures modularity and scalability using reusable React components (e.g., StockTickerWidget, TopStocks).
+The front-end is developed in Next.js and styled using Tailwind CSS. It features a clean, responsive interface that allows users to input a stock ticker symbol and receive immediate predictions. The interface is component-based, making it easier to maintain and scale. Key components include `StockTickerWidget`, which displays a horizontal scrollable list of relevant stocks, and `TopStocks`, which highlights selected assets of interest. The design follows a modern, minimalist aesthetic and supports dark mode by default to reflect the serious tone of financial analysis platforms.
 
+The back-end is implemented in Python. It is responsible for coordinating the retrieval of market data, performing data cleaning and transformation, and generating predictions through a trained machine learning model. The main execution logic is centralized in a script named `generate.py`, which runs the data pipeline from end to end. This includes fetching historical stock prices from Yahoo Finance and analyzing recent news headlines using the NewsAPI service to enhance contextual understanding of market sentiment.
 
-Smart Ticker is ideal for developers, students, and investors interested in financial machine learning, with clear potential for future development into a more robust trading assistant.
+The machine learning component relies on the Random Forest Regressor algorithm from the scikit-learn library. Random Forest was selected after considering multiple models due to its robustness, ability to handle nonlinear relationships, and resistance to overfitting on moderately sized datasets. The model is trained on historical data including open, close, high, low, and volume metrics, and outputs both a specific predicted closing price for the next trading session and a probability score indicating the likelihood that the stock will increase or decrease in value.
+
+One important feature of Smart Ticker is its ability to provide not only a single predicted value but also a classification-style confidence metric. For example, the application may indicate that a stock is 73% likely to rise tomorrow, based on a classification threshold applied to the model’s outputs. This dual-output approach offers a clearer decision-making aid for users who want both regression and probabilistic insights.
+
+Another important design decision was to separate the front-end and back-end concerns cleanly, allowing each layer to be developed and tested independently. This makes the system easier to debug, extend, and deploy. The project structure reflects this modularity, with a clear distinction between React components, pages, stylesheets, and utility scripts on the front-end, and the Python-based logic that performs core ML tasks on the back-end.
+
+All assets are fetched live at the moment the user interacts with the app. This real-time approach ensures that predictions are always based on the latest market data, rather than preloaded static information. A conscious choice was made to avoid unnecessary visual clutter such as candlestick charts or dense indicators, focusing instead on essential insights presented in a straightforward manner.
+
+Smart Ticker demonstrates the power of combining modern web development with machine learning and finance. While the predictive capabilities are subject to the limitations of data availability and model generalization, the platform provides a solid proof of concept for how intelligent trading tools can be designed with usability and modularity in mind. The current version of the system does not use HTML-interactive charts or additional technical indicators, focusing instead on core prediction functionality.
+
+This project is suitable for educational purposes and as a starting point for more advanced trading automation systems. It demonstrates how machine learning models can be deployed in practical scenarios and how web applications can be integrated with financial APIs to deliver meaningful output in real time.
+
+In conclusion, Smart Ticker is a modular, scalable, and user-focused platform that integrates machine learning with real-time financial data to support smarter decision-making in the stock market. Its clean architecture and practical implementation offer a strong foundation for future development, while its current functionality already delivers useful insights through accessible design and reliable prediction pipelines.
