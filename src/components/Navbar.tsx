@@ -21,9 +21,9 @@ export default function Navbar() {
     <nav className="bg-black/80 backdrop-blur-md text-gray-200 shadow-lg px-8 py-4 fixed top-0 w-full z-50 flex justify-between items-center">
       <Link
         href="/"
-        className="text-xl tracking-wide font-extralight text-white hover:text-blue-400 transition-colors duration-300"
+        className="text-xl tracking-wide font-extralight text-white hover:text-blue-400 transition-colors duration-500"
       >
-        Quantum Alpha
+        SmartTicker
       </Link>
 
       <ul className="flex space-x-8 text-sm font-light">
