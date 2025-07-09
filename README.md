@@ -1,5 +1,5 @@
 # Smart Ticker  
-#### Video Demo: <URL HERE>  
+#### Video Demo: https://youtu.be/XTsUZOg3YSY
 #### Description:
 
 Smart Ticker is a full-stack web platform designed to provide short-term stock price forecasts using machine learning. The project integrates real financial data and news sentiment to estimate both the likely direction and specific predicted price of a selected stock. The goal is to support individual investors and researchers by offering an interpretable, data-driven alternative to intuition-based trading.
